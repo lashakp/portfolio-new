@@ -1,70 +1,241 @@
-# Getting Started with Create React App
+Paul Akporarhe's Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a personal portfolio website built with React and Tailwind CSS, showcasing my skills, experience, projects, certifications, and resume. It highlights my expertise in B2B/B2C sales, growth operations, and data-driven projects, including web scraping, machine learning, and text-to-speech applications. The site is deployed on Vercel and includes interactive sections like a live demo link to a Breast Cancer Prediction Model on Hugging Face.
 
-## Available Scripts
+Features
 
-In the project directory, you can run:
+Hero/About Section: Displays my profile, tagline, and background in sales and technical projects.
 
-### `npm start`
+Project Preview: Links to an interactive ML model on Hugging Face.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Skills Section: Lists skills like web scraping, machine learning, and SQL.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Experience Section: Details professional roles at Omeife Technology, Upskill Universe, and Airtel Nigeria.
 
-### `npm test`
+Certifications & Assessments:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+NSQ Data Analysis with Python Level 3 assessment with a preview image (assessment.png) and PDF link.
 
-### `npm run build`
+Fundamentals of Digital Marketing and Hustle Academy certificates as clickable PDF links.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Letter of Recommendation: Displays a PDF preview (Letter_of_Recommendation_Paul.pdf) with metadata and a link to the full document.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Resume: Link to my resume (resume.pdf) for download.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Projects Section: Showcases four projects with descriptions and tags.
 
-### `npm run eject`
+Contact Section: Includes email and phone links.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Responsive Design: Built with Tailwind CSS for a clean, modern look across devices.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Prerequisites
 
-## Learn More
+Node.js: Version 16.x or higher (recommended: 18.x).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npm: Version 8.x or higher.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Git: For version control and pushing to GitHub.
 
-### Analyzing the Bundle Size
+Setup Instructions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Clone the Repository (or create one if starting fresh):
 
-### Making a Progressive Web App
+git clone <https://github.com/lashakp/portfolio-new>
+cd portfolio-new
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Install Dependencies:
 
-### Advanced Configuration
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Ensure File Structure: Place the following files in the correct directories:
 
-### Deployment
+Images (public/images/):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+assessment.png
 
-### `npm run build` fails to minify
+PDFs (public/):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+assessment.pdf
+
+cert1.pdf
+
+cert2.pdf
+
+Letter_of_Recommendation_Paul.pdf
+
+resume.pdf
+
+Other (public/):
+
+profile.jpg
+
+huggingface-preview.png
+
+
+
+Configure Tailwind CSS: Ensure tailwind.config.js exists:
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+Ensure src/index.css contains:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Remove Unused Files: Delete src/reportWebVitals.js if present to avoid warnings.
+
+Running Locally
+
+Start the Development Server:
+
+npm start
+
+
+Opens the portfolio at http://localhost:3000.
+
+Verify Sections:
+
+Check that assessment.png, profile.jpg, and huggingface-preview.png display.
+
+Ensure PDF links (assessment.pdf, cert1.pdf, cert2.pdf, Letter_of_Recommendation_Paul.pdf, resume.pdf) open correctly.
+
+Confirm the Letter of Recommendation <iframe> displays with metadata.
+
+Test responsiveness on mobile and desktop views.
+
+
+
+Check Console:
+
+Open browser DevTools (Right-click > Inspect > Console).
+
+Look for 404 errors (e.g., missing assessment.png).
+
+Building for Production
+
+Build the Project:
+
+npm run build
+
+Creates a build/ folder with optimized files.
+
+Test the Build Locally: 
+
+npm install -g serve
+serve -s build
+
+Opens at http://localhost:5000 (or another port).
+
+Deploying to Vercel
+
+
+Push to GitHub:
+
+git add .
+git commit -m "Initial portfolio commit"
+git push origin main
+
+
+
+Deploy:
+
+Go to vercel.com.
+
+Import the GitHub repository.
+Select Create React App as the framework.
+Deploy the project (no additional configuration needed).
+
+
+Verify:
+
+
+Visit the deployed URL (e.g., https://your-portfolio.vercel.app).
+
+Test all links and images.
+
+File Structure
+
+portfolio-new/
+├── public/
+│   ├── images/
+│   │   └── assessment.png
+│   ├── assessment.pdf
+│   ├── cert1.pdf
+│   ├── cert2.pdf
+│   ├── Letter_of_Recommendation_Paul.pdf
+│   ├── resume.pdf
+│   ├── profile.jpg
+│   ├── huggingface-preview.png
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── App.js
+│   ├── index.js
+│   ├── index.css
+│   └── components/
+├── package.json
+├── tailwind.config.js
+└── README.md
+
+Troubleshooting
+Image Not Displaying (e.g., assessment.png):
+Ensure public/images/assessment.png exists and matches the name (case-sensitive).
+Check console for 404 errors.
+Use a placeholder PNG if missing (e.g., screenshot assessment.pdf).
+
+
+PDF Links Not Working:
+Verify PDFs are in public/ with exact names (e.g., cert1.pdf).
+Test directly in a browser (e.g., file:///C:/Users/user/Desktop/react/portfolio-new/public/cert1.pdf).
+
+
+
+ESLint Warnings:
+Run npm start and check for unused imports.
+Remove any unused files or imports in src/App.js.
+
+
+Deployment Issues:
+Ensure all files are committed to GitHub.
+Check Vercel logs for errors.
+
+
+Other Errors:
+Share console or terminal output for specific issues.
+
+Dependencies
+React: ^18.2.0
+Tailwind CSS: ^3.4.10
+
+
+Framer Motion: For animations
+
+Lucide React: For icons (GitHub, LinkedIn, Globe)
+
+Notes
+
+Replace resume.pdf in public/ with your actual resume PDF.
+
+Ensure all PDFs and images are correctly named and placed in public/ or public/images/.
+
+The portfolio is optimized for Vercel deployment but can be hosted on other platforms like Netlify.
+
+Author
+Paul Akporarhe
+GitHub: lashakp
+LinkedIn: paul-akporarhe
+Hugging Face: lashakp
