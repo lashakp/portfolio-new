@@ -94,7 +94,7 @@ function App() {
   return (
     <div className="bg-gray-50 min-h-screen">
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid gap-12">
-        {/* Hero/About Sections */}
+        {/* Hero/About Section */}
         <header className="flex flex-col sm:flex-row justify-between items-center sm:items-start mt-6">
           <div className="text-center flex-1">
             <img
