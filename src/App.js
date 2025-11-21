@@ -4,20 +4,21 @@ import { Github, Linkedin, Globe } from "lucide-react";
 
 const user = {
   name: "Paul Akporarhe",
-  title: "B2B and B2C Sales • Growth Ops • Data Projects",
+  title: "B2B and B2C Sales • Growth Ops • Data Projects • Customer Success & Client Relations",
   location: "Abuja, Nigeria",
   email: "akporarhe@gmail.com",
   phone: "+2348106519628",
   github: "https://github.com/lashakp",
   linkedin: "https://www.linkedin.com/in/paul-akporarhe/",
   huggingface: "https://huggingface.co/lashakp",
-  tagline: `I combine B2B and B2C sales expertise with data-driven projects — from web scraping and structured querying to ML-powered prediction tools and data preprocessing (pandas). I am also a passionate developer skilled in React, Node.js, Python, and data analysis.
-          I have hands-on experience in web scraping, text-to-speech technologies, and building
+  tagline: `I combine B2B and B2C sales, customer success & client relations expertise with data-driven projects — from web scraping and structured querying to ML-powered prediction tools and data preprocessing (pandas). I am also a passionate developer skilled in React, Node.js, Python, and data analysis.
+          I have hands-on experience in customer success & client relations, web scraping, text-to-speech technologies, and building
           full-stack applications. My goal is to bridge the gap between data and user-friendly solutions.`,
   about:
-    "With a background in sales, field operations, and growth enablement, I’ve helped companies scale outreach, manage client pipelines, and optimize performance. On the technical side, I build scrapers, TTS demos, structured querying analytics, and machine learning models (like my Breast Cancer Recurrence Predictor on Hugging Face). My focus is blending business impact with technical execution.",
+    "With a background in sales, customer success & client relations, field operations, and growth enablement, I’ve helped companies scale outreach, manage client pipelines, and optimize performance. On the technical side, I build scrapers, TTS demos, structured querying analytics, and machine learning models (like my Breast Cancer Recurrence Predictor on Hugging Face). My focus is blending business impact with technical execution.",
   skills: [
     "B2B & B2C Sales Strategy",
+    "Customer Success & Client Relations",
     "Lead generation & outreach",
     "Growth operations & CRM workflows",
     "Web scraping (Python, BeautifulSoup, Selenium)",
@@ -28,10 +29,11 @@ const user = {
   experience: [
     {
       company: "Omeife Technology",
-      role: "TTS & Web Scraping Engineer",
-      dates: "2024 — Present",
+      role: "Data Scientist, TTS & Web Scraping Engineer",
+      dates: "Feb 2024 — Oct 2025",
       bullets: [
         "Built TTS pipelines and voice demos for product prototypes.",
+        "Developed data science models to enhance product features and insights.",
         "Designed scrapers for targeted industry datasets, prepared for CRM ingestion.",
         "Produced reusable utilities and documentation for scraping projects.",
       ],
@@ -60,6 +62,13 @@ const user = {
   ],
   projects: [
     {
+  title: "Car Insurance Claim Prediction (Machine Learning)",
+  description:
+    "Developed a full end-to-end machine learning pipeline to predict whether a customer would file an insurance claim. Work included data cleaning, preprocessing, outlier handling, feature engineering (including a custom risk scoring metric), EDA visualizations, train/test splits, scaling, one-hot encoding, and model training using logistic regression, random forest, and CatBoost. Delivered an interactive Gradio web app allowing users to input driver details and instantly receive claim predictions with model explanations.",
+  tags: ["Python", "Machine Learning", "EDA", "Feature Engineering", "CatBoost", "Data Visualization", "Gradio"],
+  link: "#projects",
+},
+   {
       title: "Breast Cancer Prediction Model",
       description:
         "An ML model to predict breast cancer recurrence. Includes EDA, feature ranking, and an interactive Gradio app deployed on Hugging Face Spaces.",
@@ -73,6 +82,23 @@ const user = {
       tags: ["SQL", "Data Cleaning", "ETL", "Database"],
       link: "#projects",
     },
+    {
+  "title": "Car Insurance Claims Data Analysis & Interactive Dashboard",
+  "description":
+    "Designed and implemented a full analytics pipeline to explore, clean, process, and visualize 10,000+ car insurance customer records. Work included resolving missing data, validating numeric and binary fields, transforming categorical values (e.g., vehicle ownership and claim status), and generating automated summary logging. Conducted exploratory data analysis with both static (Matplotlib/Seaborn) and interactive (Plotly) visualizations, covering claim patterns by age, experience, ownership, violations, mileage, and more. Delivered a production-ready Dash web dashboard that presents key insights, metrics, and trends, with all outputs programmatically saved—including logs, reports, metrics, and visual assets—in a structured project directory.",
+  "tags": [
+    "Python",
+    "Data Cleaning",
+    "EDA",
+    "Dash",
+    "Plotly",
+    "Matplotlib",
+    "Data Visualization",
+    "Pandas",
+    "Logging"
+  ],
+  "link": "#projects"
+},
     {
       title: "Pidgin TTS Demo App",
       description:
@@ -201,48 +227,48 @@ function App() {
 
         {/* Certifications Section */}
         <section className="p-6 bg-gray-50 rounded-xl shadow-sm">
-          <h2 className="text-2xl font-bold mb-4">Certifications & Assessments</h2>
+          <h2 className="text-2xl font-bold mb-4">Certifications</h2>
           <div className="grid md:grid-cols-2 gap-6 items-start">
             <div>
               <p className="mb-4 text-slate-700">
-                Successfully completed a professional assessment in{" "}
-                <strong>NSQ Data Analysis with Python Level 3</strong>{" "}
+                Successfully completed a professional certification in{" "}
+                <strong>National Skills Qualification Certificate in Data Science with Python Level 5</strong>{" "}
                 <strong>[Computer Professionals Registration Council of Nigeria]</strong>, 
                 demonstrating verified skills in{" "}
-                <strong>Data Analysis & Visualization with Python</strong>.
+                <strong>Data Analysis, Machine Learning & Visualization with Python</strong>.
               </p>
             </div>
             <div>
               <div className="mb-6">
-                <a href="/assessment.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/CPN_NSQ_Certificate.pdf" target="_blank" rel="noopener noreferrer">
                   <img
-                    src="/images/assessment.png"
-                    alt="Professional Assessment Proof"
+                    src="/images/certificate.jpeg"
+                    alt="Professional Certificate Proof"
                     className="rounded-xl shadow-md w-full"
                   />
                 </a>
                 <a
-                  href="/assessment.pdf"
+                  href="/CPN_NSQ_Certificate.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block mt-2 text-blue-600 hover:underline text-sm"
                 >
-                  View Full Assessment (PDF)
+                  View Full Certificate (PDF)
                 </a>
               </div>
               <div className="mb-6">
-                <a href="/cert1.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/cert1.png" target="_blank" rel="noopener noreferrer">
                   <iframe
-                    src="/cert1.pdf"
+                    src="/cert1.png"
                     title="Fundamentals of Digital Marketing"
                     className="rounded-xl shadow-md w-full h-64"
                   ></iframe>
                 </a>
               </div>
               <div>
-                <a href="/cert2.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/cert2.png" target="_blank" rel="noopener noreferrer">
                   <iframe
-                    src="/cert2.pdf"
+                    src="/cert2.png"
                     title="Hustle Academy"
                     className="rounded-xl shadow-md w-full h-64"
                   ></iframe>
