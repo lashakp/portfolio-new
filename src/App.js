@@ -255,7 +255,7 @@ export default function App() {
               className="w-full object-cover"
             />
             <a
-              href="https://https://huggingface.co/spaces/lashakp/car-insurance-claim-prediction"
+              href="https://huggingface.co/spaces/lashakp/car-insurance-claim-prediction"
               target="_blank"
               rel="noopener noreferrer"
               className="block text-center px-4 py-2 bg-blue-600 text-white font-medium hover:bg-blue-700"
