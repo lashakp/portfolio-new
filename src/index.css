@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-<<<<<<< HEAD
-@tailwind utilities;
-=======
-@tailwind utilities;
->>>>>>> 9fc319df76c23dd275874c7e0808cf1e2cd9d328
+/* stylelint-disable at-rule-no-unknown */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

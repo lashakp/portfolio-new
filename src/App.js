@@ -1,21 +1,26 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Globe } from "lucide-react";
+import assessmentImg from "./images/certificate.jpeg";
+import cert1 from "./images/cert1.png";
+import cert2 from "./images/cert2.png";
+
+const cert1Pdf = "/cert1.pdf";
+const cert2Pdf = "/cert2.pdf";
 
 const user = {
   name: "Paul Akporarhe",
-  title: "B2B and B2C Sales • Growth Ops • Data Projects • Customer Success & Client Relations",
+  title:
+    "B2B and B2C Sales • Growth Ops • Data Projects • Customer Success & Client Relations",
   location: "Abuja, Nigeria",
   email: "akporarhe@gmail.com",
   phone: "+2348106519628",
   github: "https://github.com/lashakp",
   linkedin: "https://www.linkedin.com/in/paul-akporarhe/",
   huggingface: "https://huggingface.co/lashakp",
-  tagline: `I combine B2B and B2C sales, customer success & client relations expertise with data-driven projects — from web scraping and structured querying to ML-powered prediction tools and data preprocessing (pandas). I am also a passionate developer skilled in React, Node.js, Python, and data analysis.
-          I have hands-on experience in customer success & client relations, web scraping, text-to-speech technologies, and building
-          full-stack applications. My goal is to bridge the gap between data and user-friendly solutions.`,
+  tagline: `I combine B2B and B2C sales, customer success & client relations expertise with data-driven projects — from web scraping and structured querying to ML-powered prediction tools and data preprocessing (pandas). I am also a passionate developer skilled in React, Node.js, Python, and data analysis.`,
   about:
-    "With a background in sales, customer success & client relations, field operations, and growth enablement, I’ve helped companies scale outreach, manage client pipelines, and optimize performance. On the technical side, I build scrapers, TTS demos, structured querying analytics, and machine learning models (like my Breast Cancer Recurrence Predictor on Hugging Face). My focus is blending business impact with technical execution.",
+    "With a background in sales, customer success & client relations, field operations, and growth enablement, I’ve helped companies scale outreach, manage client pipelines, and optimize performance. On the technical side, I build scrapers, TTS demos, structured querying analytics, and machine learning models (like my Car Insurance Claim Prediction hosted on Hugging Face). My focus is blending business impact with technical execution.",
   skills: [
     "B2B & B2C Sales Strategy",
     "Customer Success & Client Relations",
@@ -62,13 +67,21 @@ const user = {
   ],
   projects: [
     {
-  title: "Car Insurance Claim Prediction (Machine Learning)",
-  description:
-    "Developed a full end-to-end machine learning pipeline to predict whether a customer would file an insurance claim. Work included data cleaning, preprocessing, outlier handling, feature engineering (including a custom risk scoring metric), EDA visualizations, train/test splits, scaling, one-hot encoding, and model training using logistic regression, random forest, and CatBoost. Delivered an interactive Gradio web app allowing users to input driver details and instantly receive claim predictions with model explanations.",
-  tags: ["Python", "Machine Learning", "EDA", "Feature Engineering", "CatBoost", "Data Visualization", "Gradio"],
-  link: "#projects",
-},
-   {
+      title: "Car Insurance Claim Prediction (Machine Learning)",
+      description:
+        "Developed a full end-to-end machine learning pipeline to predict whether a customer would file an insurance claim. Work included data cleaning, preprocessing, outlier handling, feature engineering (including a custom risk scoring metric), EDA visualizations, train/test splits, scaling, one-hot encoding, and model training using logistic regression, random forest, and CatBoost. Delivered an interactive Gradio web app allowing users to input driver details and instantly receive claim predictions with model explanations.",
+      tags: [
+        "Python",
+        "Machine Learning",
+        "EDA",
+        "Feature Engineering",
+        "CatBoost",
+        "Data Visualization",
+        "Gradio",
+      ],
+      link: "https://huggingface.co/spaces/lashakp/car-insurance-claim-prediction",
+    },
+    {
       title: "Breast Cancer Prediction Model",
       description:
         "An ML model to predict breast cancer recurrence. Includes EDA, feature ranking, and an interactive Gradio app deployed on Hugging Face Spaces.",
@@ -83,22 +96,22 @@ const user = {
       link: "#projects",
     },
     {
-  "title": "Car Insurance Claims Data Analysis & Interactive Dashboard",
-  "description":
-    "Designed and implemented a full analytics pipeline to explore, clean, process, and visualize 10,000+ car insurance customer records. Work included resolving missing data, validating numeric and binary fields, transforming categorical values (e.g., vehicle ownership and claim status), and generating automated summary logging. Conducted exploratory data analysis with both static (Matplotlib/Seaborn) and interactive (Plotly) visualizations, covering claim patterns by age, experience, ownership, violations, mileage, and more. Delivered a production-ready Dash web dashboard that presents key insights, metrics, and trends, with all outputs programmatically saved—including logs, reports, metrics, and visual assets—in a structured project directory.",
-  "tags": [
-    "Python",
-    "Data Cleaning",
-    "EDA",
-    "Dash",
-    "Plotly",
-    "Matplotlib",
-    "Data Visualization",
-    "Pandas",
-    "Logging"
-  ],
-  "link": "#projects"
-},
+      title: "Car Insurance Claims Data Analysis & Interactive Dashboard",
+      description:
+        "Designed and implemented a full analytics pipeline to explore, clean, process, and visualize 10,000+ car insurance customer records. Work included resolving missing data, validating numeric and binary fields, transforming categorical values (e.g., vehicle ownership and claim status), and generating automated summary logging. Conducted exploratory data analysis with both static (Matplotlib/Seaborn) and interactive (Plotly) visualizations, covering claim patterns by age, experience, ownership, violations, mileage, and more. Delivered a production-ready Dash web dashboard that presents key insights, metrics, and trends, with all outputs programmatically saved—including logs, reports, metrics, and visual assets—in a structured project directory.",
+      tags: [
+        "Python",
+        "Data Cleaning",
+        "EDA",
+        "Dash",
+        "Plotly",
+        "Matplotlib",
+        "Data Visualization",
+        "Pandas",
+        "Logging",
+      ],
+      link: "#projects",
+    },
     {
       title: "Pidgin TTS Demo App",
       description:
@@ -116,11 +129,88 @@ const user = {
   ],
 };
 
-function App() {
+// Small presentational components
+function IconLink({ href, children, Icon }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 text-slate-700 hover:text-blue-700"
+    >
+      {Icon && <Icon size={18} />} {children}
+    </a>
+  );
+}
+
+function Section({ title, children, id }) {
+  return (
+    <section id={id} className="bg-white p-6 rounded-2xl shadow-sm">
+      {title && <h3 className="text-xl font-semibold mb-4">{title}</h3>}
+      {children}
+    </section>
+  );
+}
+
+function ProjectCard({ p }) {
+  const isHash = p.link && p.link.startsWith("#");
+  return (
+    <article className="bg-white p-4 rounded-xl shadow-sm">
+      <h4 className="font-semibold">{p.title}</h4>
+      <p className="mt-2 text-sm text-slate-600">{p.description}</p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {p.tags.map((t) => (
+          <span key={t} className="text-xs px-2 py-1 bg-slate-100 rounded">
+            {t}
+          </span>
+        ))}
+      </div>
+      <div className="mt-4">
+        {isHash ? (
+          <button
+            onClick={(e) => e.preventDefault()}
+            className="text-sm text-blue-600 hover:underline"
+            aria-disabled="true"
+            title="No external link"
+          >
+            Learn more
+          </button>
+        ) : (
+          <a
+            href={p.link}
+            target={p.link && p.link.startsWith("http") ? "_blank" : undefined}
+            rel={p.link && p.link.startsWith("http") ? "noopener noreferrer" : undefined}
+            className="text-sm text-blue-600 hover:underline"
+          >
+            Learn more
+          </a>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function ExperienceItem({ exp }) {
+  return (
+    <div className="border-b pb-4">
+      <h4 className="text-lg font-bold">{exp.role}</h4>
+      <p className="text-sm text-slate-600">
+        {exp.company} • {exp.dates}
+      </p>
+      <ul className="list-disc ml-5 mt-2 text-sm text-slate-700">
+        {exp.bullets.map((b, i) => (
+          <li key={i}>{b}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default function App() {
   return (
     <div className="bg-gray-50 min-h-screen">
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid gap-12">
-        {/* Hero/About Sections */}
+        {/* Hero / About */}
         <header className="flex flex-col sm:flex-row justify-between items-center sm:items-start mt-6">
           <div className="text-center flex-1">
             <img
@@ -130,6 +220,7 @@ function App() {
             />
             <h1 className="text-3xl sm:text-4xl font-bold mb-2">{user.name}</h1>
             <p className="text-lg text-slate-700 mb-6">{user.title}</p>
+
             <motion.h2
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -138,33 +229,20 @@ function App() {
             >
               {user.tagline}
             </motion.h2>
+
             <p className="mt-4 text-slate-600 max-w-2xl mx-auto">{user.about}</p>
           </div>
+
           <div className="flex flex-col gap-3 mt-6 sm:mt-0 sm:ml-6">
-            <a
-              href={user.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 text-slate-700 hover:text-blue-700"
-            >
-              <Linkedin size={18} /> LinkedIn
-            </a>
-            <a
-              href={user.github}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 text-slate-700 hover:text-blue-700"
-            >
-              <Github size={18} /> GitHub
-            </a>
-            <a
-              href={user.huggingface}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 text-slate-700 hover:text-blue-700"
-            >
-              <Globe size={18} /> Hugging Face
-            </a>
+            <IconLink href={user.linkedin} Icon={Linkedin}>
+              LinkedIn
+            </IconLink>
+            <IconLink href={user.github} Icon={Github}>
+              GitHub
+            </IconLink>
+            <IconLink href={user.huggingface} Icon={Globe}>
+              Hugging Face
+            </IconLink>
           </div>
         </header>
 
@@ -173,76 +251,70 @@ function App() {
           <div className="rounded-lg border border-slate-200 overflow-hidden shadow-sm">
             <img
               src="/huggingface-preview.png"
-              alt="Breast Cancer Prediction App Preview"
+              alt="car insurance claim Prediction App Preview"
               className="w-full object-cover"
             />
             <a
-              href="https://huggingface.co/spaces/lashakp/breast-cancer-recurrence-prediction"
+              href="https://https://huggingface.co/spaces/lashakp/car-insurance-claim-prediction"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="block text-center px-4 py-2 bg-blue-600 text-white font-medium hover:bg-blue-700"
             >
               Try Live Demo
             </a>
           </div>
           <div className="mt-3 text-center text-slate-600 text-sm">
-            🔮 Try my interactive ML model predicting breast cancer recurrence.
+            🔮 Try my interactive ML model predicting car insurance claim outcomes.
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section className="bg-white p-6 rounded-2xl shadow-sm">
-          <h3 className="text-xl font-semibold mb-4">Skills</h3>
+        {/* Skills */}
+        <Section title="Skills">
           <div className="flex flex-wrap gap-2">
-            {user.skills.map((skill, index) => (
-              <span
-                key={index}
-                className="text-sm px-3 py-1 bg-slate-100 rounded-full"
-              >
+            {user.skills.map((skill) => (
+              <span key={skill} className="text-sm px-3 py-1 bg-slate-100 rounded-full">
                 {skill}
               </span>
             ))}
           </div>
-        </section>
+        </Section>
 
-        {/* Experience Section */}
-        <section id="experience" className="bg-white p-6 rounded-2xl shadow-sm">
-          <h3 className="text-xl font-semibold mb-4">Experience</h3>
+        {/* Experience */}
+        <Section id="experience" title="Experience">
           <div className="grid gap-6">
             {user.experience.map((exp) => (
-              <div key={exp.company} className="border-b pb-4">
-                <h4 className="text-lg font-bold">{exp.role}</h4>
-                <p className="text-sm text-slate-600">
-                  {exp.company} • {exp.dates}
-                </p>
-                <ul className="list-disc ml-5 mt-2 text-sm text-slate-700">
-                  {exp.bullets.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-              </div>
+              <ExperienceItem key={exp.company} exp={exp} />
+            ))}
+          </div>
+        </Section>
+
+        {/* Selected Projects (moved up so it doesn't render last) */}
+        <section id="projects" className="grid gap-6">
+          <h3 className="text-xl font-semibold">Selected Projects</h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {user.projects.map((p) => (
+              <ProjectCard key={p.title} p={p} />
             ))}
           </div>
         </section>
 
-        {/* Certifications Section */}
+        {/* Certifications */}
         <section className="p-6 bg-gray-50 rounded-xl shadow-sm">
           <h2 className="text-2xl font-bold mb-4">Certifications</h2>
           <div className="grid md:grid-cols-2 gap-6 items-start">
             <div>
               <p className="mb-4 text-slate-700">
                 Successfully completed a professional certification in{" "}
-                <strong>National Skills Qualification Certificate in Data Science with Python Level 5</strong>{" "}
-                <strong>[Computer Professionals Registration Council of Nigeria]</strong>, 
-                demonstrating verified skills in{" "}
-                <strong>Data Analysis, Machine Learning & Visualization with Python</strong>.
+                <strong>National Skills Qualification Certificate in Data Science with Python Level 5 from</strong>{" "}
+                <strong>[Computer Professionals Registration Council of Nigeria]</strong>, demonstrating verified
+                skills in <strong>Data Analysis, Machine Learning & Visualization with Python</strong>.
               </p>
             </div>
             <div>
               <div className="mb-6">
                 <a href="/CPN_NSQ_Certificate.pdf" target="_blank" rel="noopener noreferrer">
                   <img
-                    src="/images/certificate.jpeg"
+                    src={assessmentImg}
                     alt="Professional Certificate Proof"
                     className="rounded-xl shadow-md w-full"
                   />
@@ -256,43 +328,84 @@ function App() {
                   View Full Certificate (PDF)
                 </a>
               </div>
+
               <div className="mb-6">
-                <a href="/cert1.png" target="_blank" rel="noopener noreferrer">
-                  <iframe
-                    src="/cert1.png"
-                    title="Fundamentals of Digital Marketing"
-                    className="rounded-xl shadow-md w-full h-64"
-                  ></iframe>
+                <a href={cert1Pdf} target="_blank" rel="noopener noreferrer" title="Open cert1 PDF">
+                  <img
+                    src={cert1}
+                    alt="Fundamentals of Digital Marketing"
+                    className="rounded-xl shadow-md w-full h-64 object-cover"
+                  />
                 </a>
+                <div className="mt-2 flex gap-3">
+                  <a
+                    href={cert1Pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-600 hover:underline"
+                  >
+                    View Fundamentals of Digital Marketing (PDF)
+                  </a>
+                  <a
+                    href={cert1}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-slate-600 hover:underline"
+                  >
+                    View Image
+                  </a>
+                </div>
               </div>
+
               <div>
-                <a href="/cert2.png" target="_blank" rel="noopener noreferrer">
-                  <iframe
-                    src="/cert2.png"
-                    title="Hustle Academy"
-                    className="rounded-xl shadow-md w-full h-64"
-                  ></iframe>
+                <a href={cert2Pdf} target="_blank" rel="noopener noreferrer" title="Open cert2 PDF">
+                  <img
+                    src={cert2}
+                    alt="Hustle Academy"
+                    className="rounded-xl shadow-md w-full h-64 object-cover"
+                  />
                 </a>
+                <div className="mt-2 flex gap-3">
+                  <a
+                    href={cert2Pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-600 hover:underline"
+                  >
+                    View Hustle Academy certificate (PDF)
+                  </a>
+                  <a
+                    href={cert2}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-slate-600 hover:underline"
+                  >
+                    View Image
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Letter of Recommendation Section */}
-        <section className="bg-white p-6 rounded-2xl shadow-sm">
-          <h2 className="text-2xl font-bold mb-4">Letter of Recommendation</h2>
+        {/* Letter of Recommendation */}
+        <Section title="Letter of Recommendation">
           <div className="border border-slate-200 rounded-lg p-6 bg-slate-50">
             <div className="mb-4">
               <p className="text-sm text-slate-600 italic">From Omeife Technologies, Uniccon Group of Companies</p>
               <p className="text-sm text-slate-600 italic">Date: 1st August 2025</p>
             </div>
-            <a href="/Letter_of_Recommendation_Paul.pdf" target="_blank" rel="noopener noreferrer">
-              <iframe
-                src="/Letter_of_Recommendation_Paul.pdf"
-                title="Letter of Recommendation Preview"
-                className="rounded-xl shadow-md w-full h-64 mb-4"
-              ></iframe>
-            </a>
+
+            <div className="mb-4">
+              <a href="/Letter_of_Recommendation_Paul.pdf" target="_blank" rel="noopener noreferrer">
+                <iframe
+                  src="/Letter_of_Recommendation_Paul.pdf"
+                  title="Letter of Recommendation Preview"
+                  className="rounded-xl shadow-md w-full h-64"
+                />
+              </a>
+            </div>
+
             <a
               href="/Letter_of_Recommendation_Paul.pdf"
               target="_blank"
@@ -302,11 +415,10 @@ function App() {
               View Full Letter (PDF)
             </a>
           </div>
-        </section>
+        </Section>
 
-        {/* Resume Section */}
-        <section className="bg-white p-6 rounded-2xl shadow-sm">
-          <h2 className="text-2xl font-bold mb-4">Resume</h2>
+        {/* Resume */}
+        <Section title="Resume">
           <div className="border border-slate-200 rounded-lg p-6 bg-slate-50">
             <p className="text-sm text-slate-600 mb-4">
               View my complete resume detailing my experience, skills, and projects.
@@ -320,42 +432,10 @@ function App() {
               View Resume (PDF)
             </a>
           </div>
-        </section>
+        </Section>
 
-        {/* Projects Section */}
-        <section id="projects" className="grid gap-6">
-          <h3 className="text-xl font-semibold">Selected Projects</h3>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {user.projects.map((p) => (
-              <article
-                key={p.title}
-                className="bg-white p-4 rounded-xl shadow-sm"
-              >
-                <h4 className="font-semibold">{p.title}</h4>
-                <p className="mt-2 text-sm text-slate-600">{p.description}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-2 py-1 bg-slate-100 rounded"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-4">
-                  <a href={p.link} className="text-sm text-blue-600 hover:underline">
-                    Learn more
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="bg-white p-6 rounded-2xl shadow-sm">
-          <h3 className="text-lg font-semibold">Get in touch</h3>
+        {/* Contact */}
+        <Section id="contact" title="Get in touch">
           <p className="mt-2 text-sm text-slate-600">
             Prefer email?{" "}
             <a href={`mailto:${user.email}`} className="text-blue-600 hover:underline">
@@ -363,9 +443,12 @@ function App() {
             </a>
           </p>
           <p className="mt-2 text-sm text-slate-600">
-            Phone: <a href={`tel:${user.phone}`} className="text-blue-600 hover:underline">{user.phone}</a>
+            Phone:{" "}
+            <a href={`tel:${user.phone}`} className="text-blue-600 hover:underline">
+              {user.phone}
+            </a>
           </p>
-        </section>
+        </Section>
 
         {/* Footer */}
         <footer className="text-center py-8 text-slate-500">
@@ -375,13 +458,9 @@ function App() {
               View source
             </a>
           </div>
-          <div className="text-xs mt-2">
-            Made with React + Tailwind. Deployed on Vercel.
-          </div>
+          <div className="text-xs mt-2">Made with React + Tailwind. Deployed on Vercel.</div>
         </footer>
       </main>
     </div>
   );
 }
-
-export default App;
