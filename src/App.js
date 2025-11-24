@@ -81,21 +81,7 @@ const user = {
       ],
       link: "https://huggingface.co/spaces/lashakp/car-insurance-claim-prediction",
     },
-    {
-      title: "Breast Cancer Prediction Model",
-      description:
-        "An ML model to predict breast cancer recurrence. Includes EDA, feature ranking, and an interactive Gradio app deployed on Hugging Face Spaces.",
-      tags: ["Machine Learning", "Gradio", "Hugging Face"],
-      link: "https://huggingface.co/spaces/lashakp/breast-cancer-recurrence-prediction",
-    },
-    {
-      title: "Employee Data Cleaning and Transformation (SQL)",
-      description:
-        "Built a SQL pipeline to clean and standardize messy HR employee records, including trimming names, validating emails, normalizing phone numbers, converting messy salary and hire date formats, and flagging/archiving invalid data. Delivered a cleaned dataset ready for reporting and analytics.",
-      tags: ["SQL", "Data Cleaning", "ETL", "Database"],
-      link: "#projects",
-    },
-    {
+     {
       title: "Car Insurance Claims Data Analysis & Interactive Dashboard",
       description:
         "Designed and implemented a full analytics pipeline to explore, clean, process, and visualize 10,000+ car insurance customer records. Work included resolving missing data, validating numeric and binary fields, transforming categorical values (e.g., vehicle ownership and claim status), and generating automated summary logging. Conducted exploratory data analysis with both static (Matplotlib/Seaborn) and interactive (Plotly) visualizations, covering claim patterns by age, experience, ownership, violations, mileage, and more. Delivered a production-ready Dash web dashboard that presents key insights, metrics, and trends, with all outputs programmatically saved—including logs, reports, metrics, and visual assets—in a structured project directory.",
@@ -113,6 +99,13 @@ const user = {
       link: "#projects",
     },
     {
+      title: "Employee Data Cleaning and Transformation (SQL)",
+      description:
+        "Built a SQL pipeline to clean and standardize messy HR employee records, including trimming names, validating emails, normalizing phone numbers, converting messy salary and hire date formats, and flagging/archiving invalid data. Delivered a cleaned dataset ready for reporting and analytics.",
+      tags: ["SQL", "Data Cleaning", "ETL", "Database"],
+      link: "#projects",
+    },
+    {
       title: "Pidgin TTS Demo App",
       description:
         "Streamlit prototype that converts conversational text into natural-sounding speech using TTS APIs — tested with local dialects.",
@@ -125,6 +118,13 @@ const user = {
         "A resilient scraper that extracts open data from government portals, normalizes records, and outputs clean CSVs ready for CRM imports.",
       tags: ["Python", "BeautifulSoup", "Data pipelines"],
       link: "#projects",
+    },
+    {
+      title: "Breast Cancer Prediction Model",
+      description:
+        "An ML model to predict breast cancer recurrence. Includes EDA, feature ranking, and an interactive Gradio app deployed on Hugging Face Spaces.",
+      tags: ["Machine Learning", "Gradio", "Hugging Face"],
+      link: "https://huggingface.co/spaces/lashakp/breast-cancer-recurrence-prediction",
     },
   ],
 };
